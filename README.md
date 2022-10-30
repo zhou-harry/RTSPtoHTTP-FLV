@@ -38,6 +38,7 @@
 
 #########################################
 rtsp://admin:abc12345@192.168.0.109:8554/h264/ch37/main/av_stream
+http://mirror.aarnet.edu.au/pub/TED-talks/911Mothers_2010W-480p.mp4
 
 [在windows下搭建、配置nginx流媒体服务器，并进行rtmp流的推流、拉流测试](https://blog.csdn.net/u014552102/article/details/100906058)
 
