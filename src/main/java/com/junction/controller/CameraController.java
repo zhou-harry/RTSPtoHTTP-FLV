@@ -49,13 +49,6 @@ public class CameraController {
 	/**
 	 * @Title: openCamera
 	 * @Description: 开启视频流
-	 * @param ip
-	 * @param username
-	 * @param password
-	 * @param channel   通道
-	 * @param stream    码流
-	 * @param starttime
-	 * @param endtime
 	 * @return Map<String,String>
 	 **/
 	@RequestMapping(value = "/cameras", method = RequestMethod.POST)
@@ -202,7 +195,6 @@ public class CameraController {
 	 * @param stream
 	 * @param starttime
 	 * @param endtime
-	 * @param openTime
 	 * @return
 	 * @return CameraPojo
 	 * @throws IOException
@@ -221,7 +213,7 @@ public class CameraController {
 		// 历史流
 		if (null != starttime && !"".equals(starttime)) {
 			if (null != endtime && !"".equals(endtime)) {
-				rtsp = "rtsp://" + username + ":" + password + "@" + IP + ":554/Streaming/tracks/"
+				rtsp = "rtsp://" + username + ":" + password + "@" + IP + ":"+config.getPull_port()+"/Streaming/tracks/"
 						+ (Integer.valueOf(channel) - 32) + "01?starttime=" + Utils.getTime(starttime).substring(0, 8)
 						+ "t" + Utils.getTime(starttime).substring(8) + "z'&'endtime="
 						+ Utils.getTime(endtime).substring(0, 8) + "t" + Utils.getTime(endtime).substring(8) + "z";
@@ -230,7 +222,7 @@ public class CameraController {
 			} else {
 				String startTime = Utils.getStarttime(starttime);
 				String endTime = Utils.getEndtime(starttime);
-				rtsp = "rtsp://" + username + ":" + password + "@" + IP + ":554/Streaming/tracks/"
+				rtsp = "rtsp://" + username + ":" + password + "@" + IP + ":"+config.getPull_port()+"/Streaming/tracks/"
 						+ (Integer.valueOf(channel) - 32) + "01?starttime=" + startTime.substring(0, 8) + "t"
 						+ startTime.substring(8) + "z'&'endtime=" + endTime.substring(0, 8) + "t" + endTime.substring(8)
 						+ "z";
@@ -247,7 +239,7 @@ public class CameraController {
 						+ token;
 			}
 		} else {// 直播流
-			rtsp = "rtsp://" + username + ":" + password + "@" + IP + ":554/h264/ch" + channel + "/" + stream
+			rtsp = "rtsp://" + username + ":" + password + "@" + IP + ":"+config.getPull_port()+"/h264/ch" + channel + "/" + stream
 					+ "/av_stream";
 			rtmp = "rtmp://" + Utils.IpConvert(config.getPush_host()) + ":" + config.getPush_port() + "/live/" + token;
 			if (config.getHost_extra().equals("127.0.0.1")) {
@@ -276,12 +268,12 @@ public class CameraController {
 
 		// 建立TCP Scoket连接，超时时间1s，如果成功继续执行，否则return
 		try {
-			rtspSocket.connect(new InetSocketAddress(cameraPojo.getIp(), 554), 1000);
+			rtspSocket.connect(new InetSocketAddress(cameraPojo.getIp(), Integer.valueOf(config.getPull_port())), 1000);
 		} catch (IOException e) {
-			logger.error("与拉流IP：   " + cameraPojo.getIp() + "   端口：   554    建立TCP连接失败！");
+			logger.error("与拉流IP：   " + cameraPojo.getIp() + "   端口：   "+config.getPull_port()+"    建立TCP连接失败！");
 			map.put("pojo", cameraPojo);
 			map.put("errorcode", 6);
-			map.put("message", "与拉流IP：   " + cameraPojo.getIp() + "   端口：   554    建立TCP连接失败！");
+			map.put("message", "与拉流IP：   " + cameraPojo.getIp() + "   端口：   "+config.getPull_port()+"    建立TCP连接失败！");
 			return map;
 		}
 		try {

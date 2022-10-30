@@ -11,6 +11,8 @@ config:
   host_extra: ${CAMERASERVER_HOST_EXTRA:127.0.0.1}
 #nginx推送端口
   push_port: ${CAMERASERVER_PUSH_PORT:1935}
+#拉流端口
+  pull_port: ${CAMERASERVER_PULL_PORT:8554}
 #主码流最大码率
   main_code: ${CAMERASERVER_MAIN_CODE:5120}
 #子码流最大码率

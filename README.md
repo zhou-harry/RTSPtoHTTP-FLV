@@ -36,7 +36,14 @@
 
 **感谢[nn200433](https://github.com/nn200433)小伙伴对本项目的支持，详细改动请参考rp分支内的提交内容**
 
-### 碎银打赏，以资奖励
-<img src="https://images.gitee.com/uploads/images/2020/0421/174552_a862b4ed_5186477.jpeg" width="200px" />
+#########################################
+rtsp://admin:abc12345@192.168.0.109:8554/h264/ch37/main/av_stream
 
-<img src="https://images.gitee.com/uploads/images/2020/0421/174726_cb99c1d6_5186477.jpeg" width="200px" />
+[在windows下搭建、配置nginx流媒体服务器，并进行rtmp流的推流、拉流测试](https://blog.csdn.net/u014552102/article/details/100906058)
+
+[使用JavaCV开发的rtsp流转rtmp流并进行推流的流媒体服务](https://gitee.com/banmajio/RTSPtoHTTP-FLV/blob/master/README.md)
+
+[使用JavaCV实现海康rtsp转rtmp实现无插件web端直播（无需转码，低资源消耗）](https://blog.csdn.net/weixin_40777510/article/details/103764198?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166711325416782391821243%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=166711325416782391821243&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-103764198-null-null.nonecase&utm_term=nginx&spm=1018.2226.3001.4450)
+
+[JavaCV中FFmpegFrameGrabber调用start()方法时出现阻塞的解决办法](https://blog.csdn.net/weixin_40777510/article/details/103808399)
+

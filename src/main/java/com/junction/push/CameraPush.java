@@ -191,7 +191,7 @@ public class CameraPush {
 			release();
 			logger.info("推流结束 设备信息：[ip:" + pojo.getIp() + " channel:" + pojo.getChannel() + " stream:"
 					+ pojo.getStream() + " starttime:" + pojo.getStarttime() + " endtime:" + pojo.getEndtime()
-					+ " rtsp:" + pojo.getRtsp() + " url:" + pojo.getUrl() + "]");
+					+ " pull:" + pojo.getRtsp() + " push:" + pojo.getUrl() + "]");
 		}
 	}
 }

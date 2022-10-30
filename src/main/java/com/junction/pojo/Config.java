@@ -16,6 +16,7 @@ public class Config {
 	private String push_host;// 推送地址
 	private String host_extra;// 额外地址
 	private String push_port;// 推送端口
+	private String pull_port;// 拉流端口
 	private String main_code;// 主码流最大码率
 	private String sub_code;// 主码流最大码率
 	private String version;// 版本信息
@@ -74,6 +75,14 @@ public class Config {
 
 	public void setVersion(String version) {
 		this.version = version;
+	}
+
+	public String getPull_port() {
+		return pull_port;
+	}
+
+	public void setPull_port(String pull_port) {
+		this.pull_port = pull_port;
 	}
 
 	@Override
